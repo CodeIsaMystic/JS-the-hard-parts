@@ -10,7 +10,7 @@ https://frontendmasters.com/courses/javascript-hard-parts-v2/pair-programming/
 ### **Thread of Execution**
 ### ***Functions***
 ### **Call Stack**
-## **FUNCTIONS & CALLBACKS  **
+## **FUNCTIONS & CALLBACKS**
 ### **General**
 Generalized & repeating fun => DRY
 ### **Higher Order**
