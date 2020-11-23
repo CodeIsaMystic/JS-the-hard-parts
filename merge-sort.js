@@ -23,7 +23,9 @@ function mergeSort(unsortedArray) {
 
 // Merge the two arrays: left and right
 function merge(left, right) {
-  let resultArray = [], leftIndex = 0, rightIndex = 0;
+  let resultArray = [],
+    leftIndex = 0,
+    rightIndex = 0;
 
   // We will concatenate values into the resultArray in order
   while (leftIndex < left.length && rightIndex < right.length) {
@@ -45,4 +47,4 @@ function merge(left, right) {
 
 merge();
 
-//console.log(resultArray);
+console.log(resultArray);

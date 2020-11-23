@@ -1,8 +1,171 @@
 "use:strict";
 
+//console.log('hello World!');
+
+// Challenge 1
+function addTwo(num) {
+  return num + 2;
+}
+
+// To check if you've completed it, uncomment these console.logs!
+/*console.log(addTwo(3));
+console.log(addTwo(-3));
+console.log(addTwo("2"));
+console.log(addTwo(-0));
+console.log(addTwo("ab"));*/
+
+
+
+
+
+// Challenge 2
+function addS(word) {
+  return word + "s";
+}
+
+//  Tests 
+/*console.log(addS("hoje"));
+console.log(addS("2"));*/
+
+
+
+
+
+// Challenge 3
+function map(numArr, callback) {
+  const finalArr = [];
+  for (let i = 0; i < numArr.length; i++) {
+    finalArr.push(callback(numArr[i]));
+  }
+  return finalArr;
+}
+
+/*console.log(map([1, 2, 3], addTwo));
+console.log(map([-1, -0, 2, "2", [1]], addTwo));
+console.log(map([5000000000000000000000, "ab"], addTwo));*/
+
+
+
+
+
+
+// Challenge 4
+/*
+let alphabet = '';
+const letters = ['a', 'b', 'c'];
+
+letters.forEach(function concat(letter) {
+  alphabet += letter;
+})
+
+console.log(alphabet);
+*/
+
+function forEach(arr, cb) {
+  const mappedArr = [];
+
+  for (let i = 0; i < arr.length; i++) {
+    mappedArr.push(cb(arr[i]));
+  }
+  return mappedArr;
+}
+/*
+console.log(forEach([1, 2, 3], addTwo));
+console.log(forEach(["word", "letter", "order"], addS));
+*/
+
+
+
+
+
+
+// Challenge 5
+function mapWith(numArr, callback) {
+  const finalArr = [];
+
+  forEach(numArr, el => finalArr.push(callback(el)))
+
+  return finalArr;
+}
+/*
+console.log(mapWith([1, 2, 3], addTwo));
+console.log(mapWith(["word", "letter", "order"], addS));
+*/
+
+
+
+
+
+
+// Challenge 6 🙌
+const nums = [4, 1, 3];
+
+
+function reduce(array, callback, initialValue) {
+  let acc = initialValue;
+  console.log(acc)
+
+  forEach(array, el => acc += el)
+  console.log(typeof (acc))
+
+  return acc;
+}
+//console.log(reduce(nums, forEach, 0));
+//-> 8
+//console.log(reduce(nums, forEach, 10));
+//-> 18
+
+
+
+
+
+// Challenge 7
+
+function intersection(arrays) {
+  //const filter = 
+
+  const reducer = (acc, curr) => {
+    acc + curr;
+    return console.log(arrays.reduce(reducer));
+  }
+  /*
+   
+   return  arrays.reduce(function(acc, curr) {
+     return filter;  
+     //return curr.filter(function(el) {
+     // acc.includes(el); 
+     //})
+   });
+   
+   
+   */
+}
+
+
+
+
+console.log(intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
+// should log: [5, 15]
+console.log(intersection([58, 10, 8, 77, 20], [58, 8, 77, 10], [10, 58, 8, 77], [10, 8, 1, 58, 7], [8, 10, 15, 58, 20]));
+// should log: [58, 10, 8, 77]
+console.log(intersection([5, 10, 20], [20, 88, 1], 20, [1, 20]));
+// should log: 20 !!??
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Type JavaScript here and click "Run Code" or press Ctrl + s
-
-
 //console.log('Hello, world!');
 
 
@@ -10,70 +173,206 @@
 function addTwo(num) {
   return num + 2;
 }
-//console.log(addTwo(3));
-//console.log(addTwo(10));
+
+// To check if you've completed it, uncomment these console.logs!
+/*console.log(addTwo(3));
+console.log(addTwo(-3));
+console.log(addTwo("2"));
+console.log(addTwo(-0));
+console.log(addTwo("ab"));*/
+
+
+
 
 
 // Challenge 2
 function addS(word) {
-  return word + 's';
+  return word + "s";
 }
-//console.log(addS('pizza'));
-//console.log(addS('bagel'));
+
+//  Tests 
+/*console.log(addS("hoje"));
+console.log(addS("2"));*/
+
+
+
+
 
 
 // Challenge 3
-function map(array, callback) {
-  const result = [];
-  for (let i = 0; i < array.length; i++) {
-    result.push(callback(array[i]));
+function map(numArr, callback) {
+  const finalArr = [];
+  for (let i = 0; i < numArr.length; i++) {
+    finalArr.push(callback(numArr[i]));
   }
-  return result;
+  return finalArr;
 }
-//console.log(map([1, 2, 3], addTwo));
+
+/*console.log(map([1, 2, 3], addTwo));
+console.log(map([-1, -0, 2, "2", [1]], addTwo));
+console.log(map([5000000000000000000000, "ab"], addTwo));*/
+
+
+
 
 
 // Challenge 4
-// see for yourself if your forEach works!
-let alphabet = '';
-const letters = ['a', 'b', 'c', 'd'];
-
 /*
-letters.forEach(function (char) {
-  alphabet += char;
-});
+
+let alphabet = '';
+const letters = ['a', 'b', 'c'];
+
+letters.forEach(function concat(letter) {
+  alphabet += letter;
+})
+
+console.log(alphabet);
+
 */
-letters.forEach(char => alphabet += char);
-//console.log(alphabet);
+function forEach(arr, cb) {
+  const mappedArr = [];
 
-/**  JOIN  **/
-let result1 = letters.join('');
-//console.log(result1);
-
-
-let result2 = '';
-
-function forEach(array) {
-  for (let i = 0; i < array.length; i++) {
-    result2 += array[i];
+  for (let i = 0; i < arr.length; i++) {
+    mappedArr.push(cb(arr[i]));
   }
-  return console.log(result2);
+  return mappedArr;
 }
-//forEach(letters);
+/*
+console.log(forEach([1, 2, 3], addTwo));
+console.log(forEach(["word", "letter", "order"], addS));
+*/
+
+
+
+
+
+
 
 
 // Challenge 5
-const result3 = [];
 
-function mapWith(array, callback) {
-  array.forEach(element => result3.push(callback(element)))
-  return result3;
+function mapWith(numArr, callback) {
+  const finalArr = [];
+
+  forEach(numArr, el => finalArr.push(callback(el)))
+
+  return finalArr;
 }
-//console.log(mapWith([1, 2, 3], addTwo));
+
+/*
+console.log(mapWith([1, 2, 3], addTwo));
+console.log(mapWith(["word", "letter", "order"], addS));
+*/
 
 
 
 
+
+
+
+
+// Challenge 6 🙌
+const nums = [4, 1, 3];
+
+
+function reduce(array, callback, initialValue) {
+  let acc = initialValue;
+  console.log(acc)
+
+  forEach(array, el => acc += el)
+  console.log(typeof (acc))
+
+  return acc;
+}
+//console.log(reduce(nums, forEach, 0));
+//-> 8
+//console.log(reduce(nums, forEach, 10));
+//-> 18
+
+
+
+
+
+
+
+// Challenge 7
+/*
+function intersection(...arrays) {
+  console.log("arrays:", arrays);
+  
+  return arrays.reduce((acc, curr) => {  
+
+     return curr.filter(el => acc.includes(el))
+  })   
+}
+*/
+const intersection = (...arrays) => {
+  console.log("arrays:", arrays);
+
+  return arrays.reduce((acc, curr) => {
+    return curr.filter(el => acc.includes(el));
+  });
+};
+
+//console.log("result: ", intersection([5, 10, 15, 20], [15, 88, 1, 5, 7], [1, 10, 15, 5, 20]));
+// should log: [5, 15]  
+//console.log("result: ", intersection([58, 10, 8, 77, 20],[58, 8, 77, 10], [10, 58, 8, 77], [10, 8, 1, 58, 77], [77, 8, 10, 15, 58, 20]));
+// should log: [58, 10, 8, 77]
+//console.log("result: ", intersection([5, 10, 20], [20, 88, 1], [20], [1, 20]));
+// should log: 20 
+
+
+
+// Challenge 8
+/*
+const union = (...arrays) => {
+  return arrays.reduce((acc, curr) => {
+    var newElements = curr.filter(el => !acc.includes(el));
+    newElements = acc.concat(newElements);
+    
+    return newElements;
+  });
+};
+*/
+
+function union(...arrays) {
+  return arrays.reduce((acc, curr) => {
+    var newElements = curr.filter(el => !acc.includes(el));
+    newElements = acc.concat(newElements);
+
+    return newElements;
+  });
+};
+
+//console.log("result: ", union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+//console.log(union([5, 10, 15], [15, 88, 1, 5, 7], [100, 15, 10, 1, 5]));
+// should log: [5, 10, 15, 88, 1, 7, 100]
+
+
+
+// Challenge 9
+function objOfMatches(array1, array2, callback) {
+  //2 ARRAYS => array1 & array2
+  // A callback 
+  var newObj = {};
+
+  array1.forEach(el => {
+    if ()
+  })
+
+  //  ====> build & return  an Obj
+
+  // Test each element of array1 with callback
+
+  // To Test if Output Match with Corresponding on Array2
+  // ==> test by index
+
+  //  If there is a match the array1 element becomes a Key in the newObj
+  //  and the array2 element becomes the values in the newObj
+
+}
+console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function (str) { return str.toUpperCase(); }));
+// should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
 
 
