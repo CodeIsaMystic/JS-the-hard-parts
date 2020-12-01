@@ -100,6 +100,16 @@ console.log(mapWith(["word", "letter", "order"], addS));
 // Challenge 6 🙌
 const nums = [4, 1, 3];
 
+const reducer = (acc, currentV) => {
+  return acc + currentV;
+}
+
+console.log(nums.reduce(reducer, 0));
+console.log(nums.reduce(reducer, 10));
+
+
+
+/*
 
 function reduce(array, callback, initialValue) {
   let acc = initialValue;
@@ -110,10 +120,13 @@ function reduce(array, callback, initialValue) {
 
   return acc;
 }
-//console.log(reduce(nums, forEach, 0));
+
+console.log(reduce(nums, forEach, 0));
 //-> 8
-//console.log(reduce(nums, forEach, 10));
+console.log(reduce(nums, forEach, 10));
 //-> 18
+
+*/
 
 
 
@@ -350,27 +363,27 @@ function union(...arrays) {
 
 
 
+
 // Challenge 9
 function objOfMatches(array1, array2, callback) {
-  //2 ARRAYS => array1 & array2
-  // A callback 
-  var newObj = {};
-
-  array1.forEach(el => {
-    if ()
-  })
-
   //  ====> build & return  an Obj
+  const objMatch = {};
 
-  // Test each element of array1 with callback
-
-  // To Test if Output Match with Corresponding on Array2
-  // ==> test by index
-
-  //  If there is a match the array1 element becomes a Key in the newObj
-  //  and the array2 element becomes the values in the newObj
-
+  // Test each element of array1 with callback  
+  for (let i = 0; i < array1.length; i++) {
+    // To Test if Output Match with Corresponding on Array2
+    // ==> test by index
+    if (callback(array1[i]) == array2[i]) {
+      //  If there is a match the array1 element becomes a Key in the newObj
+      //  and the array2 element becomes the values in the newObj
+      objMatch[array1[i]] = array2[i];
+    }
+  }
+  //console.log(typeof (objMatch))
+  return objMatch;
 }
+
+
 console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy', 'BYE', 'LATER', 'hello'], function (str) { return str.toUpperCase(); }));
 // should log: { hi: 'HI', bye: 'BYE', later: 'LATER' }
 
