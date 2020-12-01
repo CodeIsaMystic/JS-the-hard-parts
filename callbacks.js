@@ -393,8 +393,67 @@ console.log(objOfMatches(['hi', 'howdy', 'bye', 'later', 'hello'], ['HI', 'Howdy
 
 
 
+// Challenge 10
+function multiMap(arrVals, arrCallbacks) {
+  const multiMapArr = {};
+
+  for (let i = 0; i < arrVals.length; i++) {
+    multiMapArr[arrVals[i]] = [];
+    //console.log(multiMapArr);
+
+    for (let j = 0; j < arrCallbacks.length; j++) {
+      multiMapArr[arrVals[i]].push(arrCallbacks[j](arrVals[i]));
+    }
+  }
+  return multiMapArr;
+}
+//multiMap(['catfood', 'glue', 'beer'])
+
+/*
+console.log(
+  multiMap(
+    ['catfood', 'glue', 'beer'],
+    [
+      function (str) {
+        return str.toUpperCase();
+      },
+      function (str) {
+        return str[0].toUpperCase() + str.slice(1).toLowerCase();
+      },
+      function (str) {
+        return str + str;
+      }
+    ]
+  )
+);*/
+// should log: { catfood: ['CATFOOD', 'Catfood', 'catfoodcatfood'], glue: ['GLUE', 'Glue', 'glueglue'], beer: ['BEER', 'Beer', 'beerbeer'] }
 
 
+
+
+
+
+// Challenge 11
+const cities = {
+  London: 'LONDON',
+  LA: 'Los Angeles',
+  Paris: 'PARIS',
+};
+
+
+function objectFilter(obj, callback) {
+  const newObj = {};
+
+  for (let key in obj) {
+    if (callback(key) === obj[key]) {
+      newObj[key] = callback(key);
+    }
+  }
+  return newObj;
+}
+
+
+//console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
 
 
 
