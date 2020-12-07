@@ -458,3 +458,120 @@ function objectFilter(obj, callback) {
 //console.log(objectFilter(cities, city => city.toUpperCase())) // Should log { London: 'LONDON', Paris: 'PARIS'}
 
 
+
+/* Challenge 12
+  ===> Create a function majority that accepts an array and a callback. 
+      ==> The callback will return  true or false. 
+      
+  ===> function majority(arr, cb)   
+      ===>  iterate through the array
+          &  ==>  perform the callback on each element   ( until it can be determined )
+                    
+                ==>  majority of the return values are true. 
+                ==>  number of true returns = number of false returns
+                    ==> majority should return false
+                    
+/************************************************************************************/
+var result = [];
+var mappedArr = [];
+/**********************************************************************************/
+
+
+/*   function isOdd   */
+function isOdd(num) {
+  return num % 2 === 1;
+}
+
+
+/*   function majority   */
+function majority(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    mappedArr.push(callback(array[i]));
+  }
+  //console.log("First Check, mappedArr: ", mappedArr); 
+  //return mappedArr;
+
+  result = mappedArr.filter(falsy => {
+    if (falsy === false) {
+      return result.push(falsy)
+      //console.log("Map & Filter to Result: ", result);
+    }
+  })
+
+  //console.log(mappedArr.length);
+  //console.log(result.length)
+
+  if (mappedArr.length / 2 <= result.length) {
+    return console.log(false);
+  } else {
+    return console.log(true);
+  }
+}
+
+
+console.log("majority + isOdd: ", majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+//console.log("majority + isOdd: ", majority([1, 2, 3, 4, 5], isOdd)); // should log: true
+//console.log("majority + isOdd: ", majority([2, 3, 4, 5, 6], isOdd)); // should log: false 
+
+
+
+
+
+
+
+
+
+// Challenge 13
+const mappedArr = [];
+
+function prioritize(array, callback) {
+  for (let i = 0; i < array.length; i++) {
+    mappedArr.push(callback(array[i]));
+  }
+  //console.log("First Check, mappedArr: ", mappedArr); 
+  return mappedArr;
+
+  console.log(array);
+
+
+}
+/*
+  for (let j = 0; j < mappedArr.length; j++) {
+    if(mappedArr[j] == true) {
+      
+    }
+  }
+*/
+
+
+/*
+result = mappedArr.filter(true => {
+    if (falsy === false) {
+      return result.push(falsy)
+      //console.log("Map & Filter to Result: ", result);
+    }
+  })
+
+return arrays.reduce((acc, curr) => {
+    var newElements = curr.filter(el => !acc.includes(el));
+    newElements = acc.concat(newElements);
+
+    return newElements;
+  });
+*/
+
+
+//console.log(Number(true))
+//console.log(Number(false))
+
+
+
+
+
+
+// /*** Uncomment these to check your work! ***/
+const startsWithS = function (str) { return str[0] === 's' || str[0] === 'S'; };
+console.log(prioritize(['curb', 'rickandmorty', 'seinfeld', 'sunny', 'friends'], startsWithS)); // should log:
+['seinfeld', 'sunny', 'curb', 'rickandmorty', 'friends']
+
+
